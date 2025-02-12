@@ -1,11 +1,26 @@
+#!/usr/bin/python3
+"""
+This script fetches TODO list progress of an employee using an API.
+It accepts an employee ID as a command-line argument and displays the 
+employee's name, the number of completed tasks, and their titles in the
+specified format.
+"""
+
 import requests
 import sys
 
 def get_employee_todo_progress(employee_id):
+    """
+    Retrieves the TODO list and employee details from the API and 
+    displays the progress of completed tasks.
+
+    Args:
+        employee_id (int): The ID of the employee to fetch the TODO list for.
+    """
     # API URL for the user's TODO data
     url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
     
-    # Make a GET request to the API
+    # Make a GET request to the API to fetch TODO list
     response = requests.get(url)
     
     # Check if the response is successful (status code 200)
@@ -35,6 +50,10 @@ def get_employee_todo_progress(employee_id):
         print("Failed to retrieve TODO list.")
 
 if __name__ == "__main__":
+    """
+    Main function to handle command-line argument and call the function 
+    to get the employee TODO progress.
+    """
     # Check if employee ID was passed as a command-line argument
     if len(sys.argv) != 2:
         print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
