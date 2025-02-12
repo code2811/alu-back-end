@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script fetches TODO list progress of an employee using an API, and
+This script fetches the TODO list progress of an employee using an API, and
 exports the data to a CSV file in the format:
 "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
 The file name is generated based on the USER_ID.
@@ -9,6 +9,7 @@ The file name is generated based on the USER_ID.
 import csv
 import requests
 import sys
+
 
 def export_to_csv(employee_id):
     """
@@ -56,6 +57,7 @@ def export_to_csv(employee_id):
         print(f"Data has been exported to {file_name}")
     else:
         print("Failed to retrieve TODO list.")
+
 
 if __name__ == "__main__":
     """
